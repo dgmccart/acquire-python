@@ -75,6 +75,12 @@ jobs:
         with:
           path: ${{ github.workspace }}/artifacts
 
+      - run: |
+          sudo apt-get update
+          sudo apt-get install tree
+          tree ${{steps.download.outputs.download-path}}
+        shell: bash
+
       - uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ github.token }}
