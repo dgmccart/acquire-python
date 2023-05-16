@@ -13,7 +13,7 @@ jobs:
     name: "Nightly Build"
     strategy:
       matrix:
-        platform: [ "ubuntu-latest" ]
+        platform: [ "windows-latest", "macos-latest", "ubuntu-latest" ]
 
     runs-on: ${{ matrix.platform }}
 
