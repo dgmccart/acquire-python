@@ -33,9 +33,8 @@ jobs:
 
       - name: Checkout runtime nightly
         run: |
-          sudo apt-get update && sudo apt-get install tree
-          tree .
           git fetch --all
+          git branch -a
           git checkout nightly
           git submodule update --recursive
         shell: bash
