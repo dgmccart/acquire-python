@@ -6,7 +6,7 @@ on:
 
   push:  # TODO (aliddell: remove me)
     branches:
-      - trigger-nightly-release
+      - trigger-nightly-build
 
 jobs:
   nightly-build:
