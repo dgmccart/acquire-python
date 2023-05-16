@@ -35,9 +35,9 @@ jobs:
         run: |
           pwd
           git remote -v
-          git fetch --all
+          git fetch --tags
           git tag
-#          git checkout nightly
+          git checkout nightly
 #          git submodule update --recursive
         shell: bash
         working-directory: ${{github.workspace}}/acquire-video-runtime
