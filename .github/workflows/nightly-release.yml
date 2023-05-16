@@ -13,7 +13,7 @@ jobs:
     name: "Nightly Build"
     strategy:
       matrix:
-        platform: [ "windows-latest", "ubuntu-latest", "macos-latest" ]
+        platform: [ "ubuntu-latest" ]
 
     runs-on: ${{ matrix.platform }}
 
@@ -33,9 +33,12 @@ jobs:
 
       - name: Checkout runtime nightly
         run: |
+          sudo apt-get update && sudo apt-get install tree
+          tree .
           git fetch --all
           git checkout nightly
           git submodule update --recursive
+        shell: bash
         working-directory: ${{github.workspace}}/acquire-video-runtime
 
       - name: Set config to pull nightly drivers
