@@ -4,12 +4,9 @@ on:
   schedule:
     - cron: "30 5 * * *"  # runs at 5:30 AM UTC
 
-  pull_request:
+  push:  # TODO (aliddell: remove me)
     branches:
-      - main
-    pull_request: # TODO (aliddell: remove me)
-      branches:
-        - main
+      - trigger-nightly-release
 
 jobs:
   nightly-build:
