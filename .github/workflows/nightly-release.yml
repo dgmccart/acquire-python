@@ -90,4 +90,4 @@ jobs:
           prerelease: true
           title: "Nightly Release"
           files: |
-            ${{steps.download.outputs.download-path}}/*/*.zip
+            ${{steps.download.outputs.download-path}}/*/*.whl
