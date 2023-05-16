@@ -33,8 +33,9 @@ jobs:
 
       - name: Checkout runtime nightly
         run: |
+          pwd
           git fetch --all
-          git branch -a
+          git tag
           git checkout nightly
           git submodule update --recursive
         shell: bash
