@@ -65,19 +65,20 @@ jobs:
           command: build
           args: --release -o dist
 
-      - name: Install (Windows)
-        if: matrix.platform == 'windows-latest'
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          FOR %w in (*.whl) DO python -m pip install %w
+          python -m pip install --upgrade black pytest pytest-cov tifffile zarr dask ome-zarr
+
+      - name: Install (Windows)
+        if: matrix.platform == 'windows-latest'
+        run: FOR %w in (*.whl) DO python -m pip install %w
         shell: cmd
         working-directory: ${{github.workspace}}/dist
 
       - name: Install
         if: matrix.platform != 'windows-latest'
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install *.whl
+        run: python -m pip install *.whl
         working-directory: ${{github.workspace}}/dist
 
       - name: Test artifact
